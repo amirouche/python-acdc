@@ -1,0 +1,17 @@
+dim. 04 juil. 2021 20:52:55 CEST
+100000 1000
+Python 3.9.2
+benchmark-acdc.py construction 2.3450188739952864
+benchmark-acdc.py search 9.36281686500297
+441
+benchmark-ahocorapy.py construction 0.9055294069985393
+benchmark-ahocorapy.py search 15.01061888600816
+441
+
+Python 3.7.10 (7.3.5+dfsg-2, Jun 03 2021, 20:39:46) [PyPy 7.3.5 with GCC 10.2.1 20210110]
+benchmark-acdc.py construction 0.8044372650037985
+benchmark-acdc.py search 0.5068511440040311
+441
+benchmark-ahocorapy.py construction 0.10923108000133652
+benchmark-ahocorapy.py search 3.0871806149953045
+441
