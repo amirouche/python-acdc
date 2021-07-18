@@ -1,5 +1,5 @@
-CPython-v3.9.2-default:/loremipsum/benchmarks/python-acdc.py 1508886938.1
-CPython-v3.9.2-default:/loremipsum/benchmarks/ahocorapy.py 1212983224.5
-CPython-v3.9.2-default:/loremipsum/benchmarks/pyahocorasick.py 31378941.1
-PyPy-v3.7.10-7.3.5+dfsg-2:/loremipsum/benchmarks/python-acdc.py 827058909.5
-PyPy-v3.7.10-7.3.5+dfsg-2:/loremipsum/benchmarks/ahocorapy.py 436235337.6
+CPython-v3.9.2-default:/loremipsum/benchmarks/python-acdc.py 1488873934.5
+CPython-v3.9.2-default:/loremipsum/benchmarks/ahocorapy.py 1200370675.0
+CPython-v3.9.2-default:/loremipsum/benchmarks/pyahocorasick.py 31334289.7
+PyPy-v3.7.10-7.3.5+dfsg-2:/loremipsum/benchmarks/python-acdc.py 822275566.6
+PyPy-v3.7.10-7.3.5+dfsg-2:/loremipsum/benchmarks/ahocorapy.py 436703873.4

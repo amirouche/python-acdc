@@ -25,13 +25,14 @@ def timeit(name, count):
     with open('{}.{}'.format(name, 'benchmarks.txt'), 'a') as f:
         f.write("{}/{}/{} {}\n".format(PYTHON_NAME, name, PROGRAM_NAME, average))
 
+
 def science(init, make, search):
     data = init()
 
     with timeit('science', ITERATION_COUNT):
         with timeit('science-construction', CONSTRUCTION_ITERATION_COUNT):
             for _ in range(CONSTRUCTION_ITERATION_COUNT):
-                x = make(('science',))
+                x = make(('science', 'people', 'discovery'))
 
         with timeit('science-search', SEARCH_ITERATION_COUNT):
             for _ in range(SEARCH_ITERATION_COUNT):

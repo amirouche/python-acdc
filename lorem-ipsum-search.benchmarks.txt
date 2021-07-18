@@ -1,5 +1,5 @@
-CPython-v3.9.2-default:/lorem-ipsum-search/benchmarks/python-acdc.py 3227151.3
-CPython-v3.9.2-default:/lorem-ipsum-search/benchmarks/ahocorapy.py 5577024.2
-CPython-v3.9.2-default:/lorem-ipsum-search/benchmarks/pyahocorasick.py 458138.5
-PyPy-v3.7.10-7.3.5+dfsg-2:/lorem-ipsum-search/benchmarks/python-acdc.py 636673.5
-PyPy-v3.7.10-7.3.5+dfsg-2:/lorem-ipsum-search/benchmarks/ahocorapy.py 1973672.5
+CPython-v3.9.2-default:/lorem-ipsum-search/benchmarks/python-acdc.py 3240313.1
+CPython-v3.9.2-default:/lorem-ipsum-search/benchmarks/ahocorapy.py 5547677.1
+CPython-v3.9.2-default:/lorem-ipsum-search/benchmarks/pyahocorasick.py 490770.6
+PyPy-v3.7.10-7.3.5+dfsg-2:/lorem-ipsum-search/benchmarks/python-acdc.py 648238.4
+PyPy-v3.7.10-7.3.5+dfsg-2:/lorem-ipsum-search/benchmarks/ahocorapy.py 10952486.0
