@@ -1,4 +1,3 @@
-import array
 from collections import namedtuple
 
 
@@ -6,6 +5,7 @@ IState = namedtuple(
     'IState',
     ('uid', 'parent', 'byte', 'transitions', 'longest_strict_suffix', 'match')
 )
+
 
 def make_state_factory():
     UID = 0
@@ -22,28 +22,37 @@ def make(iterable):
 
     # first step: basic state machine...
     zero = make_state(None, None)
+    zero.longest_strict_suffix[0] = zero
+
     states = [zero]
     for item in iterable:
         current = zero
         bytes = item.encode('utf8')
         for byte in bytes:
             try:
-                candidate = current.transitions[byte]
+                current = current.transitions[byte]
             except KeyError:
                 next = make_state(current, byte)
                 states.append(next)
                 current.transitions[byte] = next
                 current = next
-            else:
-                current = candidate
         current.match[0] = item
 
     # second step: finalize state machine...
-    zero.longest_strict_suffix[0] = zero
 
-    for state in states:
+    todo = set()
+    todo.add(0)
+    done = set()
+
+    while todo:
+        uid = todo.pop()
+        state = states[uid]
+        done.add(uid)
+
         for child in state.transitions.values():
-            _finalize(zero, child)
+            if child.uid not in done:
+                _finalize(child, zero)
+                todo.add(child.uid)
 
     # last step: freeze!
     out = []
@@ -54,38 +63,39 @@ def make(iterable):
         fstate = FState(
             istate.byte,
             istate.match[0],
-            istate.longest_strict_suffix[0].uid,
+            istate.longest_strict_suffix[0].uid if istate.longest_strict_suffix[0] is not None else 0,
             tuple(transitions)
         )
         out.append(fstate)
+
     return tuple(out)
 
 
-def _finalize(zero, state):
-    traversed = state.parent.longest_strict_suffix[0]
+def _finalize(state, zero):
+
+    parent = state.parent
+    traversed = parent.longest_strict_suffix[0]
+
     while True:
-        if traversed is zero:
-            state.longest_strict_suffix[0] = suffix = zero
+        if state.byte in traversed.transitions.keys() and traversed.transitions[state.byte] is not state:
+            state.longest_strict_suffix[0] = traversed.transitions[state.byte]
             break
-        try:
-            suffix = traversed.transitions[state.byte]
-
-        except KeyError:
-            pass
+        elif traversed is zero:
+            state.longest_strict_suffix[0] = zero
+            break
         else:
-            if suffix is not state:
-                state.longest_strict_suffix[0] = suffix
-                break
+            traversed = traversed.longest_strict_suffix[0]
 
-        traversed = traversed.longest_strict_suffix[0]
+    suffix = state.longest_strict_suffix[0]
 
     if suffix is zero:
         return
 
+    if suffix.longest_strict_suffix is None:
+        _finalize(suffix)
+
     for byte, next in suffix.transitions.items():
-        try:
-            state.transitions[byte]
-        except KeyError:
+        if byte not in state.transitions.keys():
             state.transitions[byte] = next
 
 
@@ -101,3 +111,4 @@ def search(machine, iterable):
             if state.match:
                 yield state.match
             state = machine[state.longest_strict_suffix]
+
