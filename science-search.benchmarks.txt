@@ -1,5 +1,0 @@
-CPython-v3.9.2-default:/science-search/benchmarks/python-acdc.py 9624850.2
-CPython-v3.9.2-default:/science-search/benchmarks/ahocorapy.py 15660600.1
-CPython-v3.9.2-default:/science-search/benchmarks/pyahocorasick.py 763832.6
-PyPy-v3.7.10-7.3.5+dfsg-2:/science-search/benchmarks/python-acdc.py 1801969.0
-PyPy-v3.7.10-7.3.5+dfsg-2:/science-search/benchmarks/ahocorapy.py 4652972.9

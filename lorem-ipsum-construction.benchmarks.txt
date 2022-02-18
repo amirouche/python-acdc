@@ -1,5 +1,0 @@
-CPython-v3.9.2-default:/lorem-ipsum-construction/benchmarks/python-acdc.py 1485614766.1
-CPython-v3.9.2-default:/lorem-ipsum-construction/benchmarks/ahocorapy.py 1194808913.4
-CPython-v3.9.2-default:/lorem-ipsum-construction/benchmarks/pyahocorasick.py 30830123.4
-PyPy-v3.7.10-7.3.5+dfsg-2:/lorem-ipsum-construction/benchmarks/python-acdc.py 821583156.7
-PyPy-v3.7.10-7.3.5+dfsg-2:/lorem-ipsum-construction/benchmarks/ahocorapy.py 425690338.5

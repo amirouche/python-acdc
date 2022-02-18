@@ -73,8 +73,7 @@ def make(iterable):
 
 def _finalize(state, zero):
 
-    parent = state.parent
-    traversed = parent.longest_strict_suffix[0]
+    traversed = state.parent.longest_strict_suffix[0]
 
     while True:
         if state.byte in traversed.transitions.keys() and traversed.transitions[state.byte] is not state:
